@@ -11,13 +11,13 @@
   "theme_color": "#25282d",
   "icons": [
     {
-      "src": "./studyos-icon.png",
+      "src": "./studyos-icon-v2.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./studyos-icon.png",
+      "src": "./studyos-icon-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"

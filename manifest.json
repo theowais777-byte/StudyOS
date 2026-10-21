@@ -1,16 +1,22 @@
+
 {
-  "name": "StudyOS for Laptops: Task Manager",
+  "name": "StudyOS",
   "short_name": "StudyOS",
-  "description": "A matte desktop workspace for tasks, focus, and notes.",
+  "description": "Your personal study workspace",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#202328",
   "theme_color": "#25282d",
   "icons": [
-  {
-    "src": "./studyos-icon.png",
-    "sizes": "1024x1024",
-    "type": "image/png",
-    "purpose": "any"
-  }
+    {
+      "src": "./studyos-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
+
+
 

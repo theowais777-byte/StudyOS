@@ -1,0 +1,10 @@
+{
+  "name": "StudyOS for Laptops: Task Manager",
+  "short_name": "StudyOS",
+  "description": "A matte desktop workspace for tasks, focus, and notes.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#202328",
+  "theme_color": "#25282d",
+  "icons": []
+}

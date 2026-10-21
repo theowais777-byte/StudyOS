@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#25282D">
+  <title>StudyOS Plus — Warm Cream v2.6</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7.2c-3.4-2-7.8-.8-9.8 2.6-1 1.7-1.3 3.7-.8 5.5-3.5 1.3-5.4 5.2-4.1 8.7.6 1.8 2 3.3 3.7 4.1-.6 3.7 1.8 7.3 5.5 7.9 1.9.3 3.8-.2 5.3-1.4 2.9 2.4 7.2 2 9.6-.9 1.2-1.5 1.7-3.4 1.4-5.3 3.4-1.5 4.9-5.5 3.4-8.9-.8-1.7-2.3-3.1-4.1-3.7.4-3.7-2.2-7.1-5.9-7.5-1.5-.2-3 .1-4.2.9z"/><path d="M20 7.5v25M9.2 13.8l21.6 12.4M9.2 26.2l21.6-12.4"/></g></svg></div><div class="brand-copy"><b>StudyOS</b><small>YOUR STUDY SPACE</small></div><button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Collapse sidebar" title="Collapse sidebar"><span class="toggle-glyph">‹</span></button></div>
+    <div class="side-label">WORKSPACE</div>
+    <button class="nav active" data-page="dashboard"><span>⌂</span> Dashboard</button>
+    <button class="nav" data-page="tasks"><span>☷</span> All tasks <em id="sideTaskCount">0</em></button>
+    <button class="nav" data-page="focus"><span>◷</span> Focus timer</button>
+    <button class="nav" data-page="notes"><span>▤</span> Quick notes</button>
+    <button class="nav" data-page="pdf"><span>▧</span> PDF reader</button>
+    <div class="side-bottom">
+      <div class="quote"><span class="quote-mark">“</span><p>A little progress each day.</p><small>A GENTLE REMINDER</small></div>
+      <div class="side-footer"><span class="status-dot"></span> Local workspace <span class="version">v2.7</span></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="crumb">StudyOS <span>/</span> <b id="crumbPage">Dashboard</b></div><div class="top-actions"><span class="today-chip" id="todayLabel"></span><div class="avatar">S</div></div></header>
+    <section class="page" id="page-dashboard">
+      <div class="hero"><div><div class="overline">YOUR PERSONAL WORKSPACE</div><h1 id="hello">Let's make today count.</h1><p>Plan your tasks, protect your focus, and keep moving.</p></div><div class="hero-mark"><svg class="chatgpt-mark" viewBox="0 0 40 40" aria-label="ChatGPT-inspired mark" role="img"><g fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7.2c-3.4-2-7.8-.8-9.8 2.6-1 1.7-1.3 3.7-.8 5.5-3.5 1.3-5.4 5.2-4.1 8.7.6 1.8 2 3.3 3.7 4.1-.6 3.7 1.8 7.3 5.5 7.9 1.9.3 3.8-.2 5.3-1.4 2.9 2.4 7.2 2 9.6-.9 1.2-1.5 1.7-3.4 1.4-5.3 3.4-1.5 4.9-5.5 3.4-8.9-.8-1.7-2.3-3.1-4.1-3.7.4-3.7-2.2-7.1-5.9-7.5-1.5-.2-3 .1-4.2.9z"/><path d="M20 7.5v25M9.2 13.8l21.6 12.4M9.2 26.2l21.6-12.4"/></g></svg></div></div>
+      <div class="stats">
+        <article class="stat"><div class="stat-label">TOTAL TASKS <span class="stat-symbol">▦</span></div><strong id="statTotal">0</strong><small>On your list</small></article>
+        <article class="stat"><div class="stat-label">COMPLETED <span class="stat-symbol sage">✓</span></div><strong id="statDone">0</strong><small>Steps finished</small></article>
+        <article class="stat"><div class="stat-label">IN PROGRESS <span class="stat-symbol taupe">◷</span></div><strong id="statPending">0</strong><small>Still to do</small></article>
+        <article class="stat"><div class="stat-label">COMPLETION <span class="stat-symbol">↗</span></div><strong id="statPercent">0%</strong><small>Keep building momentum</small></article>
+      </div>
+      <section class="panel streak-panel">
+        <div class="panel-head"><div><h2>Streak & rewards</h2><p>Build a study habit, one day at a time.</p></div><span class="streak-badge">✦ YOUR PROGRESS</span></div>
+        <div class="streak-grid">
+          <article class="streak-stat"><span class="streak-emoji">🔥</span><div><small>CURRENT STREAK</small><strong id="streakCurrent">0 days</strong><p id="streakMessage">Complete a task or focus session to begin.</p></div></article>
+          <article class="streak-stat"><span class="streak-emoji">🏆</span><div><small>REWARD POINTS</small><strong id="rewardPoints">0 pts</strong><p id="rewardMessage">Earn 10 points per completed task and 5 per focus session.</p></div></article>
+        </div>
+        <div class="milestone-list" id="milestoneList" aria-live="polite"></div>
+        <div class="reward-progress"><div class="reward-progress-label"><span id="nextRewardLabel">Next reward: 50 points</span><b id="rewardProgressText">0 / 50</b></div><div class="reward-track"><span id="rewardProgressBar"></span></div><p class="reward-hint" id="rewardHint">Keep going — every small step counts.</p></div>
+      </section>
+      <section class="device-panel panel">
+        <div class="panel-head"><div><h2>Device information</h2><p>What this browser can safely report about your device</p></div><button class="soft-btn" id="refreshDeviceInfo" type="button">↻ Refresh</button></div>
+        <div class="device-grid">
+          <article class="device-stat"><span class="device-icon">▤</span><div><small>STORAGE ESTIMATE</small><strong id="deviceStorage">Checking…</strong><p id="deviceStorageNote">Browser storage estimate, not full disk space</p></div></article>
+          <article class="device-stat"><span class="device-icon">⌘</span><div><small>CPU / PROCESSORS</small><strong id="deviceCPU">Checking…</strong><p id="deviceCPUNote">Logical processor count reported by browser</p></div></article>
+          <article class="device-stat"><span class="device-icon">▦</span><div><small>RAM ESTIMATE</small><strong id="deviceRAM">Checking…</strong><p id="deviceRAMNote">May be hidden or rounded by Chrome</p></div></article>
+          <article class="device-stat"><span class="device-icon">▰</span><div><small>BATTERY</small><strong id="deviceBattery">Checking…</strong><p id="deviceBatteryNote">Battery level reported by browser, if supported</p></div></article>
+          <article class="device-stat"><span class="device-icon">⌁</span><div><small>NETWORK STATUS</small><strong id="deviceNetwork">Checking…</strong><p id="deviceNetworkNote">Browser connection status</p></div></article>
+        </div>
+        <p class="device-disclaimer">Note: browsers don't allow websites to read exact total device storage, CPU model/speed, or exact installed RAM. Values shown are estimates or browser-reported details.</p>
+      </section>
+      <div class="dashboard-grid">
+        <section class="panel tasks-panel"><div class="panel-head"><div><h2>Priority tasks</h2><p>Your next important steps</p></div><button class="text-btn" data-goto="tasks">View all ↗</button></div><div id="dashboardTasks"></div><div class="empty-mini" id="dashEmpty">No tasks yet. Add one to get started.</div></section>
+        <section class="panel focus-card"><div class="panel-head"><div><h2>Focus session</h2><p>A little focus goes a long way</p></div><span class="focus-leaf"><svg class="chatgpt-mark" viewBox="0 0 40 40" aria-label="ChatGPT-inspired mark" role="img"><g fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7.2c-3.4-2-7.8-.8-9.8 2.6-1 1.7-1.3 3.7-.8 5.5-3.5 1.3-5.4 5.2-4.1 8.7.6 1.8 2 3.3 3.7 4.1-.6 3.7 1.8 7.3 5.5 7.9 1.9.3 3.8-.2 5.3-1.4 2.9 2.4 7.2 2 9.6-.9 1.2-1.5 1.7-3.4 1.4-5.3 3.4-1.5 4.9-5.5 3.4-8.9-.8-1.7-2.3-3.1-4.1-3.7.4-3.7-2.2-7.1-5.9-7.5-1.5-.2-3 .1-4.2.9z"/><path d="M20 7.5v25M9.2 13.8l21.6 12.4M9.2 26.2l21.6-12.4"/></g></svg></span></div><div class="timer-ring"><div><strong id="dashTimer">25:00</strong><small>MINUTES</small></div></div><p class="timer-caption">Ready when you are.</p><button class="primary-btn full" data-goto="focus">Open focus timer</button></section>
+      </div>
+      <div class="bottom-note"><span>✦</span><div><b>One task at a time.</b><p>You don't need to do everything today. Just choose your next step.</p></div></div>
+    </section>
+    <section class="page hidden" id="page-tasks">
+      <div class="page-title-row"><div><div class="overline">STAY ORGANIZED</div><h1>Task manager</h1><p class="page-sub">Keep all your assignments and plans in one place.</p></div><div class="heading-actions"><button class="soft-btn" id="clearCompleted" type="button">Clear completed</button><button class="primary-btn" id="openAdd">＋ Add task</button></div></div>
+      <section class="panel add-panel hidden" id="addPanel"><div class="panel-head"><div><h2>New task</h2><p>Give your next step a name.</p></div><button class="icon-btn" id="closeAdd" aria-label="Close">×</button></div>
+        <form id="taskForm"><div class="field full-field"><label for="taskTitle">TASK NAME</label><input id="taskTitle" maxlength="120" placeholder="e.g. Revise science chapter 3" required></div>
+          <div class="form-grid"><div class="field"><label for="taskSubject">SUBJECT / CATEGORY</label><input id="taskSubject" maxlength="40" placeholder="e.g. Science"></div><div class="field"><label for="taskDue">DUE DATE</label><input id="taskDue" type="date"></div><div class="field"><label for="taskPriority">PRIORITY</label><select id="taskPriority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></div></div>
+          <div class="form-actions"><button type="button" class="soft-btn" id="cancelAdd">Cancel</button><button type="submit" class="primary-btn">Save task</button></div>
+        </form>
+      </section>
+      <section class="panel"><div class="task-tools"><div class="search"><span>⌕</span><input id="search" placeholder="Search tasks or subjects..."></div><select id="filterStatus" aria-label="Filter status"><option value="all">All tasks</option><option value="open">Active</option><option value="done">Completed</option></select><select id="filterPriority" aria-label="Filter priority"><option value="all">All priorities</option><option value="high">High priority</option><option value="medium">Medium priority</option><option value="low">Low priority</option></select><button class="soft-btn tool-action" id="exportBackup" type="button">Export backup</button><button class="soft-btn tool-action" id="importBackupBtn" type="button">Import backup</button><input id="importBackupFile" type="file" accept="application/json,.json" hidden></div><div class="task-list" id="taskList"></div><div class="empty-state hidden" id="taskEmpty"><div class="empty-symbol">✳</div><h3>Nothing here yet</h3><p>Add a task or change your filters.</p><button class="soft-btn" id="emptyAdd">＋ Add your first task</button></div></section>
+    </section>
+    <section class="page hidden" id="page-focus">
+      <div class="page-title-row"><div><div class="overline">MAKE SPACE TO THINK</div><h1>Focus timer</h1><p class="page-sub">Work in small sessions. Take breaks. Repeat.</p></div></div>
+      <div class="focus-layout"><section class="panel timer-panel"><div class="mode-tabs"><button class="mode active" data-minutes="25" data-mode="Focus">Focus · 25 min</button><button class="mode" data-minutes="5" data-mode="Short break">Short break · 5 min</button><button class="mode" data-minutes="15" data-mode="Long break">Long break · 15 min</button></div><div class="big-ring" id="bigRing"><div><strong id="timerDisplay">25:00</strong><span id="timerMode">FOCUS SESSION</span></div></div><p class="timer-message" id="timerMessage">Ready to focus? You've got this.</p><div class="timer-controls"><button class="primary-btn" id="timerStart">Start focus</button><button class="soft-btn" id="timerReset">Reset</button></div><div class="session-count"><span class="session-dot">✳</span><div><b id="sessionCount">0 sessions completed</b><small>Sessions are counted when a focus timer finishes.</small></div></div></section><aside class="panel tips-panel"><div class="overline">FOCUS TIPS</div><h2>Make it count.</h2><div class="tip"><span>01</span><div><b>Pick one task</b><p>Decide what you want to finish before starting.</p></div></div><div class="tip"><span>02</span><div><b>Clear distractions</b><p>Close extra tabs and keep only what you need.</p></div></div><div class="tip"><span>03</span><div><b>Take your break</b><p>Rest helps you come back with fresh attention.</p></div></div></aside></div>
+    </section>
+    <section class="page hidden" id="page-notes">
+      <div class="page-title-row"><div><div class="overline">SAVE A QUICK THOUGHT</div><h1>Quick notes</h1><p class="page-sub">Keep useful reminders close by on this laptop.</p></div></div>
+      <section class="panel notes-panel"><div class="panel-head"><div><h2>Your notes</h2><p>Autosaves as you type in this browser.</p></div><span class="saved-label" id="noteSaved">LOCAL NOTES</span></div><textarea id="notesText" placeholder="Write a reminder, a quick idea, or something to revise later..."></textarea><div class="notes-footer"><span>✦ Your notes stay on this laptop.</span><button class="soft-btn" id="clearNotes">Clear notes</button></div></section>
+    </section>
+    <section class="page hidden" id="page-pdf">
+      <div class="page-title-row"><div><div class="overline">READ AND REVISE</div><h1>PDF reader</h1><p class="page-sub">Open a PDF from your device. Your file stays on your device.</p></div></div>
+      <section class="panel pdf-panel">
+        <div class="pdf-toolbar"><div><h2 id="pdfFileName">Choose a PDF to begin</h2><p id="pdfStatus">PDFs open locally in your browser's built-in viewer.</p></div><div class="pdf-actions"><label class="primary-btn pdf-pick" for="pdfFileInput">＋ Open PDF</label><input id="pdfFileInput" type="file" accept="application/pdf,.pdf" hidden><a class="soft-btn hidden" id="pdfOpenNew" target="_blank" rel="noopener">Open in new tab ↗</a><button class="soft-btn hidden" id="pdfClose" type="button">Close PDF</button></div></div>
+        <div class="pdf-empty" id="pdfEmpty"><div class="pdf-empty-icon">▤</div><h3>Your study material, one click away</h3><p>Select a PDF from Downloads or another folder to read it here.</p><label class="soft-btn" for="pdfFileInput">Choose PDF file</label></div>
+        <iframe id="pdfFrame" class="pdf-frame hidden" title="PDF document reader"></iframe>
+      </section>
+    </section>
+    <footer>StudyOS for Laptops <span>·</span> Built for focused work <span>·</span> Your data stays in this browser</footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
